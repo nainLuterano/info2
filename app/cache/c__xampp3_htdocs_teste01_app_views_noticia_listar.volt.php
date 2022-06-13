@@ -108,19 +108,7 @@
                                     <a id="button-abrir-ticket" href="<?= $this->url->get(['for' => 'noticia.cadastrar']) ?>" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Nova Noticia</a>
                                     
                                 </div>
-								<table id="lista-noticia" class="table dataTable table-hover" >
-									<thead>
-										<tr>
-											<td>Cod</td>
-											<td>Titulo</td>
-											<td>Texto</td>
-											<td>Ações</td>
-										</tr>
-									</thead>
-									<tbody >
-                                        <noticias></noticias>
-									</tbody>
-								</table>
+								<noticias></noticias>
                             </div><!-- panel-body -->
                         </div>
                 </div>

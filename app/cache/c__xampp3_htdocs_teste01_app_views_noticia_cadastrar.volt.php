@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" ng-app="AppInfo">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
@@ -16,7 +16,9 @@
         <link href="<?= $this->url->getStatic('css/bootstrap-datetimepicker.min.css') ?>" rel="stylesheet">
 
         <link href="<?= $this->url->getStatic('css/font-awesome.min.css') ?>" rel="stylesheet">
-
+        <script src="<?= $this->url->getStatic('js/angular.js') ?>"></script>
+        <script src="<?= $this->url->getStatic('js/app.js') ?>"></script>
+            
 
         
 

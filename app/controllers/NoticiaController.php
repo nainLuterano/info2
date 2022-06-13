@@ -1,5 +1,5 @@
 <?php
-
+use Phalcon\Mvc\Url;
 use App\Models\Noticia;
 use Noticia as GlobalNoticia;
 use Categoria as GlobalCategoria;
@@ -14,11 +14,17 @@ class NoticiaController extends ControllerBase
         $this->view->disable();
         $noticias = new GlobalNoticia();
 
-        //Create a response instance
         $response = new \Phalcon\Http\Response();
 
-        //Set the content of the response
-        return $response->setContent(json_encode($noticias->find()));
+        $noticias = $noticias->find();
+
+        $url = new Url();
+
+        return $response->setContent(json_encode([
+            'noticias' => $noticias,
+            'url_update'  => 'noticias/editar/',
+            'url_excluir' => 'noticias/excluir/'
+        ]));
 
     }
 
