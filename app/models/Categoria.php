@@ -3,26 +3,21 @@
 use Phalcon\Mvc\Model;
 use Phalcon\Paginator\Adapter\Model as Paginator;
 
-class Noticia extends Model
+class Categoria extends Model
 {
     protected $id;
 
-    protected $titulo;
+    protected $nome;
 
-    protected $texto;
-
-    protected $data_ultima_atualizacao;
-
-    protected $data_cadastro;
 
     public function initialize()
     {
-        $this->setSource("noticia");
-        
+        $this->setSource("categoria");
+
         $this->hasMany(
             'id',
             'CategoriaNoticia',
-            'id_noticia'
+            'id_categoria'
         );
     }
 

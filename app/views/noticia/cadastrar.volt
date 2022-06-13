@@ -22,6 +22,35 @@
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-sm-12">
+                                                <label for ="Texto">Publicar</label>
+                                                {{ check_field('publicado', 'id':'publicar') }}
+                                            </div>
+                                        </div>
+
+                                        <div class="row" id="data_publicacao" style="display: none;">
+                                            <div class="form-group col-sm-12">
+                                                <label for ="Texto">Data Publicação</label><br />
+                                                {{ date_field('input_data_publicacao') }}
+                                            </div>
+                                        </div>                                        
+
+                                        
+                                        <div class="row" id="data_publicacao" style="display: none;">
+                                            <div class="form-group col-sm-12">
+                                                <label for ="Texto">Data Publicação</label><br />
+                                                {{ date_field('input_data_publicacao') }}
+                                            </div>
+                                        </div>        
+
+                                        <div class="row">
+                                            <div class="form-group col-sm-12">
+                                                <label for ="Texto">Categorias</label><br />
+                                                {{ select('categorias[]', categorias, 'using': ["id", "nome"], 'multiple': true, 'required': true) }}
+                                            </div>
+                                        </div>        
+                                        
+                                        <div class="row">
+                                            <div class="form-group col-sm-12">
                                                 <label for ="Texto">Texto</label>
                                                 {{ text_area("texto", "maxlength" :'255', "class": 'form-control tinymce-editor') }}
                                             </div>
@@ -48,7 +77,11 @@
         <script>
             $(document).ready(function(){
 
-
+                $('#publicar').on('click', function () {
+                    const display = $("#data_publicacao").css('display') == 'none' ? 'block':'none';
+                     $("#data_publicacao").css('display', display);
+                     $("#input_data_publicacao").attr('name', display == 'block' ? 'data_publicacao': '');
+                });
             });
         </script>
     {% endblock %}
