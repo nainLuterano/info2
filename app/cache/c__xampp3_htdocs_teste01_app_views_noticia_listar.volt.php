@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" ng-app="AppInfo">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
@@ -16,7 +16,9 @@
         <link href="<?= $this->url->getStatic('css/bootstrap-datetimepicker.min.css') ?>" rel="stylesheet">
 
         <link href="<?= $this->url->getStatic('css/font-awesome.min.css') ?>" rel="stylesheet">
-
+        <script src="<?= $this->url->getStatic('js/angular.js') ?>"></script>
+        <script src="<?= $this->url->getStatic('js/app.js') ?>"></script>
+            
 
         
 
@@ -84,8 +86,8 @@
             <?= $this->flash->output(true) ?>
 
             
-            <div class="row">
-                <div class="col-md-12" id="conteudo">
+            <div class="row" >
+                <div class="col-md-12" id="conteudo" >
                     <!-- <div class="col-md-6 col-sm-6"> -->
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -106,7 +108,7 @@
                                     <a id="button-abrir-ticket" href="<?= $this->url->get(['for' => 'noticia.cadastrar']) ?>" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Nova Noticia</a>
                                     
                                 </div>
-								<table id="lista-noticia" class="table dataTable table-hover">
+								<table id="lista-noticia" class="table dataTable table-hover" >
 									<thead>
 										<tr>
 											<td>Cod</td>
@@ -115,18 +117,8 @@
 											<td>Ações</td>
 										</tr>
 									</thead>
-									<tbody>
-                                        <?php foreach ($noticias as $noticia) { ?>
-                                            <tr>
-                                                <td><a href="#">#<?= $noticia->getId() ?></a></td>
-                                                <td class="titulo"> <?= $noticia->get('titulo') ?></td>
-                                                <td class="text-center"><?= $noticia->get('texto') ?></td>
-                                                <td>
-                                                    <a href="<?= $this->url->get(['for' => 'noticia.update', 'id' => $noticia->getId()]) ?>"><span class="glyphicon glyphicon-pencil"></span></a>
-                                                    <a href="<?= $this->url->get(['for' => 'noticia.excluir', 'id' => $noticia->getId()]) ?>"><span class="glyphicon glyphicon-remove-sign"></span></a>
-                                                </td>
-                                            </tr>
-                                        <?php } ?>
+									<tbody >
+                                        <noticias></noticias>
 									</tbody>
 								</table>
                             </div><!-- panel-body -->
@@ -164,15 +156,6 @@
         </script>
 		
         
-
-        <script>
-
-            $(document).ready(function(){
-
-                
-            });
-        </script>
-
 
     
 

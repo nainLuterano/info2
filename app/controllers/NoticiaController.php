@@ -9,6 +9,19 @@ class NoticiaController extends ControllerBase
     private $mensagemDeErro = '';
 
 
+    public function listaJsonAction()
+    {
+        $this->view->disable();
+        $noticias = new GlobalNoticia();
+
+        //Create a response instance
+        $response = new \Phalcon\Http\Response();
+
+        //Set the content of the response
+        return $response->setContent(json_encode($noticias->find()));
+
+    }
+
     public function listaAction()
     {
         $noticias = new GlobalNoticia();

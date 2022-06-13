@@ -2,11 +2,13 @@
 
     {%  block extrafooter %}
         <link href="{{ static_url("css/datatables.min.css") }}" rel="stylesheet">
+
+      
     {% endblock %}
 
     {% block content %}
-            <div class="row">
-                <div class="col-md-12" id="conteudo">
+            <div class="row" >
+                <div class="col-md-12" id="conteudo" >
                     <!-- <div class="col-md-6 col-sm-6"> -->
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -27,7 +29,7 @@
                                     <a id="button-abrir-ticket" href="{{ url(['for':'noticia.cadastrar']) }}" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Nova Noticia</a>
                                     
                                 </div>
-								<table id="lista-noticia" class="table dataTable table-hover">
+								<table id="lista-noticia" class="table dataTable table-hover" >
 									<thead>
 										<tr>
 											<td>Cod</td>
@@ -36,18 +38,8 @@
 											<td>Ações</td>
 										</tr>
 									</thead>
-									<tbody>
-                                        {% for noticia  in noticias %}
-                                            <tr>
-                                                <td><a href="#">#{{ noticia.getId() }}</a></td>
-                                                <td class="titulo"> {{ noticia.get('titulo') }}</td>
-                                                <td class="text-center">{{ noticia.get('texto') }}</td>
-                                                <td>
-                                                    <a href="{{ url(['for':'noticia.update','id':noticia.getId()])}}"><span class="glyphicon glyphicon-pencil"></span></a>
-                                                    <a href="{{ url(['for':'noticia.excluir','id':noticia.getId()])}}"><span class="glyphicon glyphicon-remove-sign"></span></a>
-                                                </td>
-                                            </tr>
-                                        {% endfor %}
+									<tbody >
+                                        <noticias></noticias>
 									</tbody>
 								</table>
                             </div><!-- panel-body -->
@@ -59,14 +51,5 @@
 
     {%  block extrafooter %}
         
-
-        <script>
-
-            $(document).ready(function(){
-
-                
-            });
-        </script>
-
 
     {% endblock %}
